@@ -1,0 +1,25 @@
+{% extends "learning_logs/base.html" %}
+{% load django_bootstrap5 %}
+
+{% block page_header %}
+  <h1 class="display-5 fw-light mb-4">Register</h1>
+  <hr style="border: 0; border-top: 1px solid #dee2e6; margin-top: 0; margin-bottom: 1.5rem;">
+{% endblock page_header %}
+
+{% block content %}
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+      <div class="card shadow">
+        <div class="card-body">
+          <form method="post">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            {% bootstrap_button "Register &raquo;" button_type="submit" button_class="btn-primary w-100 mt-3" %}
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock content %}
