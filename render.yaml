@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: learning-log
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn learning_log.wsgi:application"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: learning_log.settings

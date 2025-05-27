@@ -9,7 +9,8 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
-
+import os
+import dj_database_url
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -132,6 +133,17 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # My settings
 LOGIN_URL = 'users:login'
 
-# Heroku settings.
-import django_heroku
-django_heroku.settings(locals())
+ALLOWED_HOSTS = ['*']
+
+# Settings for static files (CSS, JS)
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# Use Whitenoise
+MIDDLEWARE.insert(1, 'whitenoise.middleware.WhitNoiseMiddleware')
+
+# Data from Render
+DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+
+
+
