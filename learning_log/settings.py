@@ -22,7 +22,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['learning_log-4oi3.onrender.com', 'localhost']
+ALLOWED_HOSTS = ['learning-log-4oi3.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -138,7 +138,10 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
 
 # Data from Render
-DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
 
 
 
