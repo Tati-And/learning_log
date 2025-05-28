@@ -22,7 +22,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['learning_log.onrender.com', 'localhost']
+ALLOWED_HOSTS = ['learning_log-4oi3.onrender.com', 'localhost']
 
 
 # Application definition
