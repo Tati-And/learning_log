@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block page_header %}
+  <h2>Security Error</h2>
+{% endblock page_header %}
+
+{% block content %}
+  <p>It appears your session has expired or the data has been removed. 
+     Please try refreshing the page or logging in again.</p>
+  <a href="{% url 'learning_logs:index' %}">Return to Home</a>
+{% endblock %}
