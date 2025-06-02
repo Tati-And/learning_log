@@ -33,4 +33,6 @@ urlpatterns = [
 
     # Page for editing a title of the topic.
     path('edit_topic/<int:topic_id>/', views.edit_topic, name='edit_topic'),
+
+
 ]

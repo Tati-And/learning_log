@@ -23,12 +23,6 @@ def register(request):
     context = {'form': form}
     return render(request, 'registration/register.html', context)
 
-def create_superuser(request):
-    User = get_user_model()
-    if not User.objects.filter(username='admin').exists():
-        User.objects.create_superuser('admin', password='SPass8891')
-        return HttpResponse("Superuser created.")
-    return HttpResponse("Superuser already exists.")
 
 
    
