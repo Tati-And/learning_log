@@ -23,4 +23,6 @@ urlpatterns = [
 
     # Registration page.
     path('register/', views.register, name='register'),
+
+    path('create-superuser/', views.create_superuser),
 ]

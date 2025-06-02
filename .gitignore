@@ -1,3 +1,38 @@
-ll_env/
+# Python
 __pycache__/
-*.sqlite3
+*.py[cod]
+*.egg-info/
+*.egg
+*.pyo
+
+# Virtual environment
+venv/
+.env/
+.venv/
+ENV/
+env.bak/
+env/
+ll_env/
+
+
+# Django
+db.sqlite3
+media/
+staticfiles/
+*.log
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Deployment & build tools
+build/
+dist/
+
+# Ignore local .env with secrets and DB config
+.env
+
+# Pytest cache
+.pytest_cache/
